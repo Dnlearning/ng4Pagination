@@ -1,0 +1,14 @@
+<h1 class="text-center">test pagination</h1>
+<div class="container">
+  <h3 >News</h3>
+  <select #selected (change)="getSelectedValue(selected)" >
+    <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+  </select>
+
+  <div class="news">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let new of news | paginate : {itemsPerPage: itemsPerPage, currentPage: p}"><a href="#">{{new}}</a></li>
+    </ul>
+    <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+  </div>
+</div>
